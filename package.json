@@ -2,7 +2,7 @@
   "name": "reservationservice",
   "version": "1.0.0",
   "description": "Nipong Naepong Web reservation service.",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
