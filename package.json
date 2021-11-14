@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/jeongbaebang/ReservationService/issues"
   },
-  "homepage": "https://github.com/jeongbaebang/ReservationService#readme"
+  "homepage": "https://github.com/jeongbaebang/ReservationService#readme",
+  "type": "module"
 }

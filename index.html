@@ -5,35 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/x-icon" href="static/img/logo/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="src/static/img/logo/favicon.ico"
+    />
 
-    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="src/static/css/index.css" />
     <title>니뽕&내뽕</title>
   </head>
   <body>
     <header>
       <div class="grid">
         <div class="logo">
-          <img src="static/img/logo/logo.png" alt="logo.png" />
+          <img src="src/static/img/logo/logo.png" alt="logo.png" />
         </div>
-        <div class="info">인천 영종도점</div>
+        <div class="info">
+          <p><a href="tel:+820327522822">인천 영종도점</a></p>
+        </div>
       </div>
     </header>
 
-    <section id="main">
+    <main>
       <div class="grid">
-        <div id="app">
-          <div class="buttons">
-            <div class="menu-button">
-              <button>메뉴보기</button>
-            </div>
-            <div class="reservation-button">
-              <button>예약하기</button>
-            </div>
-          </div>
-        </div>
+        <div id="app"></div>
       </div>
-    </section>
+    </main>
 
     <footer>
       <div class="grid">
@@ -47,5 +44,6 @@
         </p>
       </div>
     </footer>
+    <script defer type="module" src="src/static/js/index.js"></script>
   </body>
 </html>
