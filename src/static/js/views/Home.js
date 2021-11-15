@@ -9,9 +9,9 @@ export default class extends AbstractView {
   async getHtml() {
     return `
     <div class="scrren">
-    <div class="home">
-      <section class="content"></section>
-    </div>
+      <div class="home">
+        <section class="content"></section>
+      </div>
 
     <div class="menu">
       <button data-link="/menu">메뉴보기</button>

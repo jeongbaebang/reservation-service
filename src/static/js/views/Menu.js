@@ -7,283 +7,57 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    return `
-    <div class="scrren">
-    <div class="menu-card">
-      <!-- 뽕 -->
-      <section class="content">
-        <h2>면종류</h2>
+    const createElement = super.createElement;
+    const appendChild = super.appendChild;
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">트러플고기짜장</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              고기가 듬뿍 들어가 진한 고기맛과 트러플 오일 향의 새로운
-              퓨전 짜장
-            </div>
-          </div>
-        </div>
+    function createItemList({ name, text }) {
+      const $item = createElement('div', 'item');
+      const $itemTitle = createElement('div', 'item-title');
+      const $itemTitleText = createElement('div', 'text', name);
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">맵크뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              크뽕의 장점을 그대로 살리고 화끈한 매운맛을 추가한 맵무심
-              넘치는 메뉴
-            </div>
-          </div>
-        </div>
+      appendChild($itemTitle, $itemTitleText);
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">크뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              순백의 크림소스와 홍합의 비주얼 콜라보! 부드럽고 고소한
-              식감으로 누구에게나 추천 가능한 메뉴
-            </div>
-          </div>
-        </div>
+      const $itemContent = createElement('div', 'item-content');
+      const $itemContentText = createElement('div', 'text', text);
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">로뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              장밋빛 로제 소스에 모차렐라치즈까지! 비주얼 깡패! 부드러운
-              맛에 다시 한번 놀라는 메뉴
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">차뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              매콤한 짬뽕에 강렬한 불 맛을 더한 니뽕내뽕 베스트 메뉴
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">일뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              해산물이 내는 뽀얀 국물인 짬뽕 깔끔하고 시원한 맛을 찾는
-              분께 추천!
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">토뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              열정적인 토마토와 건강한 통마늘이 어우러져 살짝 매콤한
-              맛에 다시 찾게 되는 메뉴
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">태뽕</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              국물이 없는 짬뽕에 땅콩 토핑을 얹어 달콤, 매콤, 고소한
-              식감을 주는 태국식 볶음면
-            </div>
-          </div>
-        </div>
+      appendChild($itemContent, $itemContentText);
+      appendChild($item, [$itemTitle, $itemContent]);
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">뽕골레</div>
-          </div>
-          <div class="item-content">
-            <div class="text">
-              쫄깃한 바지락에 향긋한 마늘과 와인 향이 더해진 봉골레 짬뽕
-            </div>
-          </div>
-        </div>
-      </section>
+      return $item;
+    }
 
-      <!-- 리조또 -->
-      <section class="content">
-        <h2>리조또</h2>
+    function getMenuScrrenHTML(info) {
+      const $scrren = createElement('div', 'scrren');
+      const $menuCard = createElement('div', 'menu-card');
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">핫시크리조또</div>
-          </div>
+      const $title = ['면종류', '리조또', '피자', '에이드'].map(title =>
+        createElement('h2', null, title)
+      );
 
-          <div class="item-content">
-            <div class="text">
-              지중해풍 해산물 크림 리조또에 차뽕의 강렬하고 매콤한 불
-              맛을 더해서 탄생한 니뽕내뽕버전의 해산물 크림 리조또
-            </div>
-          </div>
-        </div>
+      Object.values(info).forEach((infoArr = [], i) => {
+        const $content = createElement('section', 'content');
+        appendChild($content, $title[i]);
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">크림불고기리조또</div>
-          </div>
+        infoArr.forEach(element => {
+          appendChild($content, createItemList(element));
+        });
 
-          <div class="item-content">
-            <div class="text">
-              부드럽고 고소한 크림소스에 불고기를 더한 남녀노소 즐길 수
-              있는 크림리조또
-            </div>
-          </div>
-        </div>
+        appendChild($menuCard, $content);
+      });
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">맵로제리조또</div>
-          </div>
+      appendChild($scrren, $menuCard);
 
-          <div class="item-content">
-            <div class="text">
-              특제 로제 소스와 불고기 그리고 니뽕내뽕 매운맛의 완벽한
-              조화로 만들어진 매운 로제 리조또
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">로제불고기리조또</div>
-          </div>
+      const $reservation = createElement('div', 'reservation');
 
-          <div class="item-content">
-            <div class="text">
-              특제 토마토소스에 크림을 더해 이국적인 맛을 느낄 수 있는
-              로제와 불고기가 어우러진 리조또
-            </div>
-          </div>
-        </div>
-      </section>
+      const $button = createElement('button', null, '예약하기');
+      $button.dataset.link = '/menu';
 
-      <section class="content">
-        <h2>피자</h2>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">포테이컨피자</div>
-          </div>
+      appendChild($reservation, $button);
+      appendChild($scrren, $reservation);
 
-          <div class="item-content">
-            <div class="text">
-              베이컨 피자와 포테이토 피자를 동시에 즐길 수 있는
-              단짠매력의 피자
-            </div>
-          </div>
-        </div>
+      return $scrren;
+    }
 
-        <div class="item">
-          <div class="item-title">
-            <div class="text">콘치즈피자</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text">
-              니뽕내뽕만의 부드러운 갈릭치즈 소스에 고소한 콘과 치즈의
-              조화! 은은하게 퍼지는 트러플 향까지 한 번에 즐길 수 있는
-              피자
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">페피자</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text">
-              누구나 부담 없이 즐길 수 있는 페퍼로니 피자에 트리플
-              치즈를 넣어 치즈의 풍미와 페퍼로니에 매콤함을 동시에 느낄
-              수 있는 피자
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">니피자</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text">
-              고구마 토핑 피자를 딥 소스에 찍어 먹는 피자 달콤하고
-              고소한 식감에 남녀노소 모두 선호하는 베스트 메뉴
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">내 피자</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text">
-              갈릭버터 토핑 피자를 딥소스에 찍어 먹는 피자 건강한
-              마늘향과 크림치즈 딥소스의 콜라보!
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="content">
-        <h2>에이드</h2>
-
-        <div class="item">
-          <div class="item-title">
-            <div class="text">청포도</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">애플망고</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">오렌지</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-title">
-            <div class="text">자몽</div>
-          </div>
-
-          <div class="item-content">
-            <div class="text"></div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="reservation">
-      <button data-link="/menu">예약하기</button>
-    </div>
-  </div>
-`;
+    return getMenuScrrenHTML(this.info).outerHTML;
   }
 }

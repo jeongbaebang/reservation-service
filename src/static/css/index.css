@@ -142,9 +142,6 @@ main #app {
   height: 100%;
   max-height: 100%;
 
-  overflow: scroll;
-  overflow-x: hidden;
-
   margin: 0 auto;
 
   /* 임시 */
@@ -204,7 +201,7 @@ main #app {
 
   max-height: 100%;
 
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 
   padding: 10px;
@@ -220,9 +217,6 @@ main #app {
   height: 40vh;
 
   max-height: 100%;
-
-  overflow: scroll;
-  overflow-x: hidden;
 
   padding: 10px;
 
