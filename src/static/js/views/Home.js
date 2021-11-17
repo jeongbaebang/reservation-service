@@ -10,14 +10,14 @@ export default class extends AbstractView {
     return `
     <div class="scrren">
       <div class="home">
-        <section class="content"></section>
+        
       </div>
 
-    <div class="menu">
+    <div class="menu-btn">
       <button data-link="/menu">메뉴보기</button>
     </div>
-    <div class="reservation">
-      <button data-link="/menu">예약하기</button>
+    <div class="reservation-btn">
+      <button data-link="/reservation">예약하기</button>
     </div>
   </div>
 `;

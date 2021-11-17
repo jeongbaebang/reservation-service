@@ -47,10 +47,10 @@ export default class extends AbstractView {
 
       appendChild($scrren, $menuCard);
 
-      const $reservation = createElement('div', 'reservation');
+      const $reservation = createElement('div', 'reservation-btn');
 
       const $button = createElement('button', null, '예약하기');
-      $button.dataset.link = '/menu';
+      $button.dataset.link = '/reservation';
 
       appendChild($reservation, $button);
       appendChild($scrren, $reservation);

@@ -1,9 +1,11 @@
 import Menu from '../views/Menu.js';
 import Home from '../views/Home.js';
+import Reservation from '../views/Reservation.js';
 
 const routes = [
   { path: '/', View: Home },
-  { path: '/menu', View: Menu }
+  { path: '/menu', View: Menu },
+  { path: '/reservation', View: Reservation }
 ];
 
 const router = async () => {
@@ -24,6 +26,9 @@ const router = async () => {
   const view = new match.route.View();
 
   document.querySelector('#app').innerHTML = await view.getHtml();
+  if (typeof view.functionActivation === 'function') {
+    view.functionActivation();
+  }
 };
 
 export default router;

@@ -1,4 +1,6 @@
-export default class {
+import tools from '../tools/index.js';
+
+export default class extends tools {
   info = {
     ppong: [
       {
@@ -100,29 +102,6 @@ export default class {
 
   setTitle(title) {
     document.title = title;
-  }
-
-  createElement(tagName = 'div', className, textContent) {
-    const $node = document.createElement(tagName);
-
-    if (className) {
-      $node.className = className;
-    }
-
-    if (textContent) {
-      $node.textContent = textContent;
-    }
-
-    return $node;
-  }
-
-  appendChild($target, $node) {
-    if (Array.isArray($node)) {
-      console.log($node);
-      $node.forEach($current => $target.appendChild($current));
-    } else {
-      $target.appendChild($node);
-    }
   }
 
   async getHtml() {

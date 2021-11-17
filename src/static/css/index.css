@@ -53,6 +53,31 @@ button {
   font-family: 'Jua', sans-serif;
 }
 
+section.content h1,
+h2 {
+  margin: 0;
+}
+
+section.content .item {
+  border: 1px solid black;
+}
+
+.item .item-title {
+  background-color: violet;
+}
+.item-title .text {
+  font-size: 1.4em;
+}
+
+.item .item-content {
+  background-color: cadetblue;
+}
+
+.item-content .text {
+  font-size: 1em;
+  color: var(--primary);
+}
+
 /* fonts */
 @font-face {
   font-family: 'Jua';
@@ -139,8 +164,8 @@ main #app {
 
 #app .scrren {
   width: 80%;
-  height: 100%;
-  max-height: 100%;
+  height: 90%;
+  max-height: 90%;
 
   margin: 0 auto;
 
@@ -149,15 +174,15 @@ main #app {
 }
 
 /* path: '/' */
-.scrren .menu {
+.scrren .menu-btn {
   padding: 10px;
 }
 
-.scrren .reservation {
+.scrren .reservation-btn {
   padding: 10px;
 }
 
-.scrren button {
+.scrren .reservation-btn button {
   height: 10vh;
   max-height: 10vh;
 
@@ -173,12 +198,28 @@ main #app {
   color: var(--primary);
 }
 
-.scrren .menu button {
+.scrren .menu-btn button {
+  height: 10vh;
+  max-height: 10vh;
+
+  position: relative;
+  top: 1px;
+
+  font-size: 2em;
+  letter-spacing: 2px;
+
+  transition: all 0.2s;
+
+  border-radius: 10px;
+  color: var(--primary);
+}
+
+.scrren .menu-btn button {
   background: var(--second);
   box-shadow: 0px 15px 0px 0px #5d9697, 0px 0px 20px 0px #bbb;
 }
 
-.scrren .reservation button {
+.scrren .reservation-btn button {
   background: var(--second);
   box-shadow: 0px 15px 0px 0px #5d9697, 0px 0px 20px 0px #bbb;
 }
@@ -193,13 +234,21 @@ main #app {
   box-shadow: 0px 7px 0px 0px #5d9697;
 }
 
+/* path: '/' */
+.scrren .home {
+  height: 100%;
+  max-height: 40vh;
+
+  padding: 10px;
+
+  /* 임시 */
+  background-color: red;
+}
+
 /* path: '/menu' */
 .scrren .menu-card {
-  /* 이전에 했던 높이 */
-  /* height: 64vh; */
-  height: 52vh;
-
-  max-height: 100%;
+  height: 100%;
+  max-height: 53vh;
 
   overflow: auto;
   overflow-x: hidden;
@@ -210,41 +259,100 @@ main #app {
   background-color: red;
 }
 
-/* path: '/' */
-.scrren .home {
-  /* 이전에 했던 높이 */
-  /* height: 52vh; */
-  height: 40vh;
+/* path: '/reservation' */
+.scrren .reservation-card {
+  height: 53vh;
+  max-height: 53vh;
 
-  max-height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
 
   padding: 10px;
 
   /* 임시 */
-  background-color: red;
-}
-section.content h2 {
-  margin: 0;
+  background-color: seagreen;
 }
 
-section.content .item {
-  border: 1px solid black;
+.reservation-card .content {
+  text-align: center;
+
+  border: 3px solid skyblue;
 }
 
-.item .item-title {
-  background-color: violet;
-}
-.item-title .text {
-  font-size: 1.4em;
+.reservation-card .content h1 {
+  height: 50px;
 }
 
-.item .item-content {
-  background-color: cadetblue;
+.reservation-card .content .progress {
+  text-align: right;
 }
 
-.item-content .text {
-  font-size: 1em;
-  color: var(--primary);
+.reservation-card .reservation-people {
+  height: 100px;
+  border: 1px solid red;
+}
+
+.reservation-people .people-button {
+  width: 60vw;
+  height: 40px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  background-color: pink;
+}
+
+.people-button button {
+  width: 100%;
+  color: var(--first);
+  font-size: 1.2em;
+}
+
+.people-button .num {
+  width: 100%;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.people-button button:nth-child(1) {
+  width: 50%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.people-button button:nth-child(3) {
+  width: 50%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.reservation-card .reservation-time {
+  height: 100px;
+  border: 1px solid yellow;
+}
+
+.reservation-time .time input[type='time'] {
+  width: 60vw;
+  height: 40px;
+  font-size: 1.2em;
+}
+
+.reservation-card .reservation-tel {
+  height: 100px;
+  border: 1px solid springgreen;
+}
+
+.reservation-tel p {
+  text-align: right;
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+.reservation-tel .tel input[type='tel'] {
+  width: 60vw;
+  height: 40px;
+  font-size: 1.2em;
 }
 
 /* footer */
@@ -271,4 +379,8 @@ footer address {
 footer .copyright {
   grid-column: 1/9;
   grid-row: 2;
+}
+
+form {
+  content: none;
 }
