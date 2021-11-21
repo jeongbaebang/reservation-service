@@ -1,74 +1,26 @@
 import AbstractView from './AbstractView.js';
 
+import User from '../controller/user.js';
+
+const user = new User();
+
 export default class extends AbstractView {
   constructor() {
     super();
-    this.setTitle('예약');
+    this.setTitle('예약정보');
   }
 
-  functionActivation() {
-    const $reservationForm = document.forms.reservation;
-    if (!$reservationForm) return;
-
-    const storage = super.localStorage;
-    const $buttons = super.getElementById('js-people-buttons');
-    const $count = super.querySelector($buttons, '.num');
-
-    function countFunc() {
-      let state = 1;
-
-      const changeCount = num => {
-        $count.textContent = num;
-      };
-
-      const increase = () => {
-        state += 1;
-        changeCount(state);
-      };
-
-      const decrease = () => {
-        if (Number($count.textContent) <= 1) {
-          changeCount(1);
-        } else {
-          state -= 1;
-          changeCount(state);
-        }
-      };
-
-      return function _closure(className) {
-        return className === 'increase' ? increase() : decrease();
-      };
-    }
-
-    const count = countFunc();
-
-    const handlers = {
-      click({ target: { type, className } }) {
-        if (type === 'button') count(className);
-      },
-      submit(event) {
-        event.preventDefault();
-        const reservationInfo = {
-          people: $count.textContent,
-          time: $reservationForm.reservationTime.value,
-          tel: $reservationForm.reservationTel.value
-        };
-        storage('set', 'reservationInfo', JSON.stringify(reservationInfo));
-        console.log(storage('get', 'reservationInfo'));
-      }
-    };
-
-    super.addEventListener($buttons, 'click', handlers.click);
-    super.addEventListener($reservationForm, 'submit', handlers.submit);
+  controller() {
+    user.controller();
   }
 
   async getHtml() {
     return `
     <div class="scrren">
     <form name="reservation">
-      <div class="reservation-card">
+      <div class="user-reservation">
         <section class="content">
-          <h1>*예약정보*</h1>
+          <h1>*예약정보s*</h1>
           <div class="progress"><p>1/3</p></div>
           <div class="reservation-people">
             <div>
@@ -96,6 +48,7 @@ export default class extends AbstractView {
                 min="11:00"
                 max="22:00"
                 name="reservationTime"
+                pattern="[0-9]{2}:[0-9]{2}"
                 required
               />
             </div>

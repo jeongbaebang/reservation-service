@@ -17,7 +17,7 @@ export default class extends AbstractView {
       <button data-link="/menu">메뉴보기</button>
     </div>
     <div class="reservation-btn">
-      <button data-link="/reservation">예약하기</button>
+      <button data-link="/user_reservation">예약하기</button>
     </div>
   </div>
 `;

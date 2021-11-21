@@ -3,7 +3,7 @@ import AbstractView from './AbstractView.js';
 export default class extends AbstractView {
   constructor() {
     super();
-    this.setTitle('메뉴선택');
+    this.setTitle('메뉴');
   }
 
   async getHtml() {
@@ -50,7 +50,7 @@ export default class extends AbstractView {
       const $reservation = createElement('div', 'reservation-btn');
 
       const $button = createElement('button', null, '예약하기');
-      $button.dataset.link = '/reservation';
+      $button.dataset.link = '/user_reservation';
 
       appendChild($reservation, $button);
       appendChild($scrren, $reservation);

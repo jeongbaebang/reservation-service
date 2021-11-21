@@ -1,20 +1,18 @@
-import router from './routes/routes.js';
+import router from './router/index.js';
 
-const navigatorTO = url => {
-  window.history.pushState(null, null, url);
+const { route, navigate } = router;
 
-  router();
-};
-
-window.addEventListener('popstate', router);
+window.addEventListener('popstate', () => {
+  route();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#app').addEventListener('click', e => {
     if (e.target.matches('[data-link]')) {
       e.preventDefault();
-      navigatorTO(e.target.dataset.link);
+      navigate(e.target.dataset.link);
     }
   });
 
-  router();
+  route();
 });

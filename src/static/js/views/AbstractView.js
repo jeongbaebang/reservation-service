@@ -82,19 +82,35 @@ export default class extends tools {
     ],
     soda: [
       {
-        name: '청포도',
+        name: '청포도 1L',
         text: ''
       },
       {
-        name: '애플망고',
+        name: '애플망고 1L',
         text: ''
       },
       {
-        name: '오렌지',
+        name: '오렌지 1L',
         text: ''
       },
       {
-        name: '자몽',
+        name: '자몽 1L',
+        text: ''
+      },
+      {
+        name: '청포도 0.5L',
+        text: ''
+      },
+      {
+        name: '애플망고 0.5L',
+        text: ''
+      },
+      {
+        name: '오렌지 0.5L',
+        text: ''
+      },
+      {
+        name: '자몽 0.5L',
         text: ''
       }
     ]
