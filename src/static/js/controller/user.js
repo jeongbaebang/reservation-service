@@ -25,12 +25,12 @@ export default class extends tools {
     const storage = super.localStorage(STORAGE_KEY);
     const STORAGE_VALUE = storage.get();
 
-    console.log(STORAGE_VALUE);
-    if (STORAGE_VALUE !== null) {
-      const { [STORAGE_KEY]: info } = parse(STORAGE_VALUE);
-      console.log(info.time);
-      $reservationForm.reservationTime.value = info.time;
-    }
+    // console.log(STORAGE_VALUE);
+    // if (STORAGE_VALUE !== null) {
+    //   const { [STORAGE_KEY]: info } = parse(STORAGE_VALUE);
+    //   console.log(info.time);
+    //   $reservationForm.reservationTime.value = info.time;
+    // }
 
     const handlers = {
       click({ target: { type, className: cN, parentElement: pE } }) {
@@ -44,16 +44,19 @@ export default class extends tools {
       },
       submit(event) {
         event.preventDefault();
-        localState.set(
-          STORAGE_KEY,
+        // localState.set(STORAGE_KEY, {
+        //   people: countValue.get(),
+        //   time: $reservationForm.reservationTime.value,
+        //   tel: $reservationForm.reservationTel.value
+        // });
+
+        storage.set(
           stringify({
-            people: countValue.get(),
-            time: $reservationForm.reservationTime.value,
-            tel: $reservationForm.reservationTel.value
+            인원수: countValue.get(),
+            방문예정시각: $reservationForm.reservationTime.value,
+            전화번호: $reservationForm.reservationTel.value
           })
         );
-        console.log(localState.get());
-        storage.set(stringify(localState.get()));
         // storage('set', STORAGE_KEY, stringify(reservationInfo));
         // console.log(storage('get', STORAGE_KEY));
         navigate('/menu_reservation');

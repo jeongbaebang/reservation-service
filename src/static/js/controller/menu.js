@@ -6,11 +6,11 @@ export default class extends tools {
     const $form = document.forms.reservation;
     if (!$form) return;
 
-    const { navigate } = router;
     const qS = super.querySelector;
     const tC = super.textContent;
     const fE = super.findElementByClassName;
     const { stringify } = super.JSON();
+    const { navigate } = router;
 
     const $contents = qS($form, '.menu-reservation');
 
@@ -64,10 +64,9 @@ export default class extends tools {
       submit(event) {
         event.preventDefault();
 
-        if (confirm('예약을 진행할까요?')) {
-          storage.set(stringify(result));
-          console.log(result);
-        }
+        storage.set(stringify(result));
+        console.log(result);
+        navigate('/confirm');
       }
     };
 

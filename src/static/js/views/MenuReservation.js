@@ -17,7 +17,7 @@ export default class extends AbstractView {
     const cE = super.createElement;
     const aC = super.appendChild;
 
-    function createItemList({ name, text }) {
+    function createItem({ name, text }) {
       const $item = cE('div', 'item');
       const $itemTitle = cE('div', 'item-title');
       const $itemTitleText = cE('div', 'text', name);
@@ -79,7 +79,7 @@ export default class extends AbstractView {
         aC($content, $title[i]);
 
         infoArr.forEach(element => {
-          aC($content, createItemList(element));
+          aC($content, createItem(element));
         });
 
         aC($menuReservation, $content);
@@ -90,7 +90,7 @@ export default class extends AbstractView {
 
       const $reservation = cE('div', 'reservation-btn');
 
-      const $button = cE('button', null, '예약하기');
+      const $button = cE('button', null, '예약 하러 가기');
       $button.type = 'submit';
 
       aC($reservation, $button);
