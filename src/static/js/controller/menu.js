@@ -40,10 +40,6 @@ export default class extends tools {
       };
     }
 
-    function confirm(text) {
-      return window.confirm(text);
-    }
-
     const handlers = {
       click({ target: { type, className: cN, parentElement: pE } }) {
         if (type !== 'button') return;
@@ -63,9 +59,7 @@ export default class extends tools {
 
       submit(event) {
         event.preventDefault();
-
         storage.set(stringify(result));
-        console.log(result);
         navigate('/confirm');
       }
     };

@@ -1,6 +1,5 @@
 import Menu from '../views/Menu.js';
 import Home from '../views/Home.js';
-// eslint-disable-next-line import/no-cycle
 import UserReservation from '../views/UserReservation.js';
 import MenuReservation from '../views/MenuReservation.js';
 import Confirm from '../views/Confirm.js';

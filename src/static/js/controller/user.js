@@ -9,7 +9,7 @@ export default class extends tools {
     const { navigate } = router;
     const qS = super.querySelector;
     const tC = super.textContent;
-    const { parse, stringify } = super.JSON();
+    const { stringify } = super.JSON();
 
     const $buttons = super.getElementById('js-people-buttons');
     const countValue = tC(qS($buttons, '.num'));
@@ -17,20 +17,9 @@ export default class extends tools {
     // 카운터 활성화
     const count = super.countFunc(1);
 
-    // 상태관리 활성화
-    const localState = super.stateManagement();
-
     // 로컬스토리지 활성화
     const STORAGE_KEY = 'userReservationInfo';
     const storage = super.localStorage(STORAGE_KEY);
-    const STORAGE_VALUE = storage.get();
-
-    // console.log(STORAGE_VALUE);
-    // if (STORAGE_VALUE !== null) {
-    //   const { [STORAGE_KEY]: info } = parse(STORAGE_VALUE);
-    //   console.log(info.time);
-    //   $reservationForm.reservationTime.value = info.time;
-    // }
 
     const handlers = {
       click({ target: { type, className: cN, parentElement: pE } }) {
@@ -44,21 +33,15 @@ export default class extends tools {
       },
       submit(event) {
         event.preventDefault();
-        // localState.set(STORAGE_KEY, {
-        //   people: countValue.get(),
-        //   time: $reservationForm.reservationTime.value,
-        //   tel: $reservationForm.reservationTel.value
-        // });
 
         storage.set(
           stringify({
             인원수: countValue.get(),
-            방문예정시각: $reservationForm.reservationTime.value,
+            방문예정시간: $reservationForm.reservationTime.value,
             전화번호: $reservationForm.reservationTel.value
           })
         );
-        // storage('set', STORAGE_KEY, stringify(reservationInfo));
-        // console.log(storage('get', STORAGE_KEY));
+
         navigate('/menu_reservation');
       }
     };

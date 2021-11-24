@@ -48,6 +48,9 @@ export default class {
       },
       get() {
         return localStorage.getItem(key);
+      },
+      clear() {
+        localStorage.clear();
       }
     };
   }

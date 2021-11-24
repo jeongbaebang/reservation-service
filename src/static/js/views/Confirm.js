@@ -40,14 +40,15 @@ export default class extends AbstractView {
 
       const $confirm = cE('div', 'confirm');
 
-      aC($confirm, [
-        cE('h1', null, '아래 정보가 맞으신가요?'),
-        cE('div', 'progress', '3/3')
-      ]);
+      const $progress = cE('div', 'progress');
+
+      aC($progress, cE('p', null, '3/3'));
+
+      aC($confirm, [cE('h1', null, '예약확인'), $progress]);
 
       [
         {
-          title: '개인정보',
+          title: '주문자 정보',
           id: 'confirm-personal'
         },
         {

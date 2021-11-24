@@ -27,5 +27,8 @@
     "url": "https://github.com/jeongbaebang/ReservationService/issues"
   },
   "homepage": "https://github.com/jeongbaebang/ReservationService#readme",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "firebase": "^9.5.0"
+  }
 }

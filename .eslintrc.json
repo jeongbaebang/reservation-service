@@ -19,8 +19,6 @@
     "class-methods-use-this": ["off"],
     "import/extensions": ["off"],
     "import/no-cycle": ["off"],
-    // "no-unused-vars": "off",
-    // "no-undef": "warn",
     "max-len": [
       "error",
       {

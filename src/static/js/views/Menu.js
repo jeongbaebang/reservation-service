@@ -7,53 +7,66 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    const createElement = super.createElement;
-    const appendChild = super.appendChild;
+    const cE = super.createElement;
+    const aC = super.appendChild;
 
-    function createItemList({ name, text }) {
-      const $item = createElement('div', 'item');
-      const $itemTitle = createElement('div', 'item-title');
-      const $itemTitleText = createElement('div', 'text', name);
+    function createItemList({ name, text, img }) {
+      const $item = cE('div', 'item');
+      const $itemTitle = cE('div', 'item-title');
+      const $itemTitleText = cE('div', 'text', name);
 
-      appendChild($itemTitle, $itemTitleText);
+      // test
 
-      const $itemContent = createElement('div', 'item-content');
-      const $itemContentText = createElement('div', 'text', text);
+      const $testText = cE('img', 'img');
+      $testText.src = img;
+      $testText.alt = name;
 
-      appendChild($itemContent, $itemContentText);
-      appendChild($item, [$itemTitle, $itemContent]);
+      // testEnd
+
+      aC($itemTitle, $itemTitleText);
+
+      const $itemContent = cE('div', 'item-content');
+      const $itemContentText = cE('div', 'text', text);
+
+      aC($itemContent, $itemContentText);
+
+      // test
+      aC($itemContent, $testText);
+      // testEnd
+
+      aC($item, [$itemTitle, $itemContent]);
 
       return $item;
     }
 
     function getMenuScrrenHTML(info) {
-      const $scrren = createElement('div', 'scrren');
-      const $menuCard = createElement('div', 'menu-card');
+      const $scrren = cE('div', 'scrren');
+      const $menuCard = cE('div', 'menu-card');
 
       const $title = ['면종류', '리조또', '피자', '에이드'].map(title =>
-        createElement('h2', null, title)
+        cE('h2', null, title)
       );
 
       Object.values(info).forEach((infoArr = [], i) => {
-        const $content = createElement('section', 'content');
-        appendChild($content, $title[i]);
+        const $content = cE('section', 'content');
+        aC($content, $title[i]);
 
         infoArr.forEach(element => {
-          appendChild($content, createItemList(element));
+          aC($content, createItemList(element));
         });
 
-        appendChild($menuCard, $content);
+        aC($menuCard, $content);
       });
 
-      appendChild($scrren, $menuCard);
+      aC($scrren, $menuCard);
 
-      const $reservation = createElement('div', 'reservation-btn');
+      const $reservation = cE('div', 'reservation-btn');
 
-      const $button = createElement('button', null, '예약하기');
+      const $button = cE('button', null, '예약하기');
       $button.dataset.link = '/user_reservation';
 
-      appendChild($reservation, $button);
-      appendChild($scrren, $reservation);
+      aC($reservation, $button);
+      aC($scrren, $reservation);
 
       return $scrren;
     }

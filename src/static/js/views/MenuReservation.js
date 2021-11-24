@@ -17,10 +17,18 @@ export default class extends AbstractView {
     const cE = super.createElement;
     const aC = super.appendChild;
 
-    function createItem({ name, text }) {
+    function createItem({ name, text, img }) {
       const $item = cE('div', 'item');
       const $itemTitle = cE('div', 'item-title');
       const $itemTitleText = cE('div', 'text', name);
+
+      // test
+
+      const $testText = cE('img', 'img');
+      $testText.src = img;
+      $testText.alt = name;
+
+      // testEnd
 
       aC($itemTitle, $itemTitleText);
 
@@ -28,6 +36,12 @@ export default class extends AbstractView {
       const $itemContentText = cE('div', 'text', text);
 
       aC($itemContent, $itemContentText);
+
+      // test
+
+      aC($itemContent, $testText);
+
+      // testEnd
 
       const $itemUserSelection = cE('div', 'item-userSelection');
 
@@ -45,7 +59,7 @@ export default class extends AbstractView {
       const $decreaseButton = cE('button', 'decrease', '-');
       $decreaseButton.type = 'button';
 
-      aC($quantityButtons, [$increaseButton, $num, $decreaseButton]);
+      aC($quantityButtons, [$decreaseButton, $num, $increaseButton]);
 
       aC($quantity, $quantityButtons);
       aC($itemUserSelection, [$price, $quantity]);
@@ -65,10 +79,11 @@ export default class extends AbstractView {
 
       const $menuReservation = cE('div', 'menu-reservation');
 
-      aC($menuReservation, [
-        cE('h1', null, '*메뉴선택*'),
-        cE('div', 'progress', '2/3')
-      ]);
+      const $progress = cE('div', 'progress');
+
+      aC($progress, cE('p', null, '2/3'));
+
+      aC($menuReservation, [cE('h1', null, '메뉴선택'), $progress]);
 
       const $title = ['면종류', '리조또', '피자', '에이드'].map(title =>
         cE('h2', null, title)

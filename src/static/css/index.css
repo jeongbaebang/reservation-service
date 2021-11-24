@@ -27,6 +27,7 @@ li {
 }
 
 /* base styles */
+
 html {
   height: 100%;
   max-height: 100%;
@@ -38,39 +39,41 @@ body {
 
   display: grid;
   grid-template-rows: 10% 80% 10%;
-
-  font-family: 'Jua', sans-serif;
 }
 
 button {
   width: 100%;
   height: 100%;
-  max-height: 100%;
 
   outline: none;
   border: none;
 
-  font-family: 'Jua', sans-serif;
+  font-size: 1.25em;
 }
 
 section.content h1,
 h2 {
-  margin: 0;
+  margin: 5px 0px;
 }
 
 section.content .item {
-  border: 1px solid black;
+  margin-top: 5px;
+  padding: 5px;
+
+  background-color: var(--sixth);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  border-radius: 5px;
 }
 
 .item .item-title {
-  background-color: violet;
-}
-.item-title .text {
-  font-size: 1.4em;
+  background-color: var(--second);
 }
 
-.item .item-content {
-  background-color: cadetblue;
+.item-title .text {
+  padding-left: 2px;
+  font-size: 1.3em;
+  color: var(--first);
 }
 
 .item-content .text {
@@ -82,6 +85,10 @@ section.content .item {
 @font-face {
   font-family: 'Jua';
   src: url('../font/Jua-Regular.ttf');
+}
+
+* {
+  font-family: 'Jua', sans-serif;
 }
 
 /* primitiveValue
@@ -98,7 +105,7 @@ h4,
 p,
 a,
 li {
-  color: var(--primary);
+  color: var(--thirdly);
   font-weight: normal;
 }
 
@@ -125,6 +132,8 @@ header .logo {
 
   align-self: center;
   padding: 0px 15px;
+
+  cursor: pointer;
 }
 
 header .info {
@@ -164,13 +173,9 @@ main #app {
 
 #app .scrren {
   width: 80%;
-  height: 90%;
-  max-height: 90%;
+  max-height: 66vh;
 
   margin: 0 auto;
-
-  /* 임시 */
-  background-color: pink;
 }
 
 /* path: '/' */
@@ -182,14 +187,14 @@ main #app {
   padding: 10px;
 }
 
-.scrren .reservation-btn button {
+.scrren .reservation-btn button,
+.menu-btn button {
   height: 10vh;
   max-height: 10vh;
 
   position: relative;
   top: 1px;
 
-  font-size: 1.3em;
   letter-spacing: 2px;
 
   transition: all 0.2s;
@@ -198,28 +203,8 @@ main #app {
   color: var(--primary);
 }
 
-.scrren .menu-btn button {
-  height: 10vh;
-  max-height: 10vh;
-
-  position: relative;
-  top: 1px;
-
-  font-size: 1.5em;
-  letter-spacing: 2px;
-
-  transition: all 0.2s;
-
-  border-radius: 10px;
-  color: var(--primary);
-}
-
-.scrren .menu-btn button {
-  background: var(--second);
-  box-shadow: 0px 15px 0px 0px #5d9697, 0px 0px 20px 0px #bbb;
-}
-
-.scrren .reservation-btn button {
+.menu-btn button,
+.reservation-btn button {
   background: var(--second);
   box-shadow: 0px 15px 0px 0px #5d9697, 0px 0px 20px 0px #bbb;
 }
@@ -236,77 +221,79 @@ main #app {
 
 /* path: '/' */
 .scrren .home {
-  height: 100%;
+  height: 40vh;
   max-height: 40vh;
 
-  padding: 10px;
+  margin-top: 5px;
 
-  /* 임시 */
-  background-color: red;
+  background-image: url('../img/logo/main_brand_logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  border: 3px solid var(--second);
+  border-radius: 5px;
 }
 
 /* path: '/menu' */
-.scrren .menu-card {
-  height: 100%;
-  max-height: 53vh;
-
-  overflow: auto;
-  overflow-x: hidden;
-
-  padding: 10px;
-
-  /* 임시 */
-  background-color: red;
-}
-
-/* path: '/user_reservation' */
-.scrren .user-reservation {
+.menu-card,
+.user-reservation,
+.menu-reservation,
+.confirm {
   height: 53vh;
   max-height: 53vh;
 
+  margin-top: 5px;
+
   overflow: auto;
   overflow-x: hidden;
 
   padding: 10px;
 
-  /* 임시 */
-  background-color: seagreen;
+  border: 3px solid var(--second);
+  border-radius: 5px;
 }
 
-.user-reservation .content {
+/* path: '/user_reservation' */
+
+.user-reservation {
   text-align: center;
 
-  border: 3px solid skyblue;
+  border: 3px solid var(--second);
 }
-
-.user-reservation .content h1 {
+.user-reservation .item-title .text {
+  align-self: center;
+}
+.user-reservation h1 {
   height: 50px;
+  margin: 0;
 }
 
-.user-reservation .content .progress {
+.user-reservation .progress,
+.menu-reservation .progress {
   text-align: right;
 }
 
-.user-reservation .reservation-people {
-  height: 100px;
-  border: 1px solid red;
+.reservation-people,
+.reservation-time,
+.reservation-tel {
+  width: 100%;
+  height: 50px;
+
+  font-size: 1.2em;
 }
 
 .reservation-people .people-button {
-  width: 60vw;
-  height: 40px;
+  height: 100%;
   margin: 0 auto;
 
   display: flex;
   justify-content: space-evenly;
-
-  background-color: pink;
 }
 
 .people-button button {
   width: 100%;
   color: var(--first);
-  font-size: 1.2em;
 }
 
 .people-button .num {
@@ -327,68 +314,35 @@ main #app {
   border-bottom-right-radius: 10px;
 }
 
-.user-reservation .reservation-time {
-  height: 100px;
-  border: 1px solid yellow;
-}
-
-.reservation-time .time input[type='time'] {
+.reservation-time .time input[type='time'],
+.reservation-tel .tel input[type='tel'] {
   width: 60vw;
-  height: 40px;
-  font-size: 1.2em;
+  height: 48px;
+  font-size: 1em;
+  border: none;
 }
 
-.user-reservation .reservation-tel {
-  height: 100px;
-  border: 1px solid springgreen;
-}
-
-.reservation-tel p {
+.user-reservation p,
+.menu-reservation p,
+.confirm p {
   text-align: right;
   font-size: 0.5em;
   font-weight: bold;
 }
 
-.reservation-tel .tel input[type='tel'] {
-  width: 60vw;
-  height: 40px;
-  font-size: 1.2em;
-}
-
 /* path: '/menu_reservation' */
-.scrren .menu-reservation {
-  height: 53vh;
-  max-height: 53vh;
 
-  overflow: auto;
-  overflow-x: hidden;
-
-  padding: 10px;
-
-  /* 임시 */
-  background-color: seagreen;
-}
-
-.menu-reservation .content {
-  border: 3px solid skyblue;
-}
-
-.menu-reservation h1 {
+.menu-reservation h1,
+.confirm h1 {
   height: 50px;
   text-align: center;
   margin: 0;
-}
-
-.menu-reservation .progress {
-  text-align: right;
 }
 
 .item .item-userSelection {
   display: flex;
   height: 25px;
   justify-content: space-between;
-
-  background-color: pink;
 }
 
 .item-userSelection .quantity-buttons {
@@ -404,35 +358,11 @@ main #app {
 .item-userSelection .quantity-buttons button {
   width: 65px;
   height: 100%;
+
+  color: var(--first);
 }
 
 /* path: '/confirm' */
-.scrren .confirm {
-  height: 53vh;
-  max-height: 53vh;
-
-  overflow: auto;
-  overflow-x: hidden;
-
-  padding: 10px;
-
-  /* 임시 */
-  background-color: cornflowerblue;
-}
-
-.confirm .content {
-  border: 3px solid skyblue;
-}
-
-.confirm h1 {
-  height: 50px;
-  text-align: center;
-  margin: 0;
-}
-
-.confirm .progress {
-  text-align: right;
-}
 
 .confirm textarea {
   resize: none;
@@ -440,7 +370,10 @@ main #app {
 
   height: 100px;
   padding: 5px;
+
+  border: none;
 }
+
 /* footer */
 footer {
   grid-row: 3/4;
@@ -465,4 +398,77 @@ footer address {
 footer .copyright {
   grid-column: 1/9;
   grid-row: 2;
+}
+
+footer a,
+footer p {
+  color: var(--primary);
+}
+
+/* test */
+
+.menu-card .item .item-content,
+.menu-reservation .item .item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-card .item .item-content text,
+.menu-reservation .item .item-content {
+  align-self: center;
+}
+
+.item-content img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* larget tablets & laptop styles */
+/* 960px 부터 시작 */
+@media screen and (min-width: 960px) {
+  .grid {
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .reservation-time .time input[type='time'],
+  .reservation-tel .tel input[type='tel'] {
+    width: 100%;
+  }
+  a,
+  p {
+    font-size: 20px;
+  }
+  section.content h1,
+  h2 {
+    font-size: 1.7em;
+  }
+  .item-title .text {
+    height: 47px;
+    font-size: 1.5em;
+  }
+  .item-content .text {
+    width: 80%;
+    font-size: 1.2em;
+  }
+  .item-content img {
+    width: 125px;
+  }
+  button {
+    font-size: 1.45em;
+  }
+  .user-reservation .item-title .text {
+    height: 60px;
+  }
+  .user-reservation p,
+  .menu-reservation p,
+  .confirm p {
+    font-size: 0.7em;
+  }
+  .item .item-userSelection {
+    height: 50px;
+    align-items: center;
+  }
 }
