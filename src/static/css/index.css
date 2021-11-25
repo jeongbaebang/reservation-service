@@ -70,6 +70,10 @@ section.content .item {
   background-color: var(--second);
 }
 
+.admin .content .item:nth-child(1) .item-title {
+  font-weight: bold;
+}
+
 .item-title .text {
   padding-left: 2px;
   font-size: 1.3em;

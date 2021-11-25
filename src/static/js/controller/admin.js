@@ -9,7 +9,6 @@ export default class extends tools {
     const { getFirestore, collection, query, orderBy, onSnapshot } =
       super.fireStore();
 
-    // const getFirestore = gF();
     const db = getFirestore();
 
     const $content = qS(document, '.content');
