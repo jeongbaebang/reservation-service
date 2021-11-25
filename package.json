@@ -2,9 +2,9 @@
   "name": "reservationservice",
   "version": "1.0.0",
   "description": "Nipong Naepong Web reservation service.",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./backend/server.js"
+    "start": "node server.js"
   },
   "private": true,
   "engines": {
@@ -32,8 +32,8 @@
     "url": "https://github.com/jeongbaebang/ReservationService/issues"
   },
   "homepage": "https://github.com/jeongbaebang/ReservationService#readme",
-  "type": "module",
   "dependencies": {
+    "express": "^4.17.1",
     "firebase": "^9.5.0"
   }
 }
