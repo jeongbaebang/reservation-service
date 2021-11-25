@@ -2,9 +2,9 @@
   "name": "reservationservice",
   "version": "1.0.0",
   "description": "Nipong Naepong Web reservation service.",
-  "main": "src/index.html",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
