@@ -2,7 +2,7 @@
   "name": "reservationservice",
   "version": "1.0.0",
   "description": "Nipong Naepong Web reservation service.",
-  "main": "server.js",
+  "main": "index.html",
   "scripts": {
     "start": "node server.js"
   },
