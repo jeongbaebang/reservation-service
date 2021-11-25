@@ -2,9 +2,10 @@
   "name": "reservationservice",
   "version": "1.0.0",
   "description": "Nipong Naepong Web reservation service.",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "nodemon --watch server.js"
   },
   "private": true,
   "engines": {
@@ -19,6 +20,7 @@
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
     "prettier": "^2.4.1"
   },
   "repository": {
