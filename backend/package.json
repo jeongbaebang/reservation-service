@@ -4,13 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --watch  server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "*"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
