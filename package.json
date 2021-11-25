@@ -4,7 +4,7 @@
   "description": "Nipong Naepong Web reservation service.",
   "main": "index.html",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "node ./backend/server.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
