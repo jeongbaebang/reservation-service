@@ -1,4 +1,6 @@
-export default class {
+import firebase from './firebase.js';
+
+export default class extends firebase {
   createElement(tagName = 'div', className, textContent) {
     const $node = document.createElement(tagName);
 
@@ -35,6 +37,22 @@ export default class {
         return $target.textContent;
       }
     };
+  }
+
+  changelanguage(
+    string = '',
+    translationTarget = [''],
+    translationResult = ['']
+  ) {
+    let target = string;
+
+    const { length } = translationTarget;
+
+    for (let i = 0; i < length; i += 1) {
+      target = target.replace(translationTarget[i], translationResult[i]);
+    }
+
+    return target;
   }
 
   addEventListener($target = document, eventName, handler) {

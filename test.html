@@ -1,80 +1,221 @@
 <div class="scrren">
-  <form name="reservation">
-    <div class="user-reservation">
-      <h1>예약정보</h1>
-      <div class="progress"><p>1/3</p></div>
-
-      <section class="content">
-        <div class="item">
-          <div class="item-title">
-            <div class="text">
-              몇시에 예약하시나요?
-              <p>*당일 예약만 가능합니다.</p>
-            </div>
+  <div class="menu-card">
+    <section class="content">
+      <h2>면종류</h2>
+      <div class="item">
+        <div class="item-title"><div class="text">트러플고기짜장</div></div>
+        <div class="item-content">
+          <div class="text">
+            고기가 듬뿍 들어가 진한 고기맛과 트러플 오일 향의 새로운 퓨전 짜장
           </div>
-          <div class="item-content">
-            <div class="reservation-time">
-              <div class="time">
-                <input
-                  type="time"
-                  min="11:00"
-                  max="22:00"
-                  value="00:00"
-                  name="reservationTime"
-                  pattern="[0-1]{3}:[0-9]{2}:[0-9]{2}"
-                  required
-                />
-              </div>
-            </div>
-          </div>
+          <img
+            class="img"
+            src="img/menu/truffleMeatJjajang.png"
+            alt="트러플고기짜장"
+          />
         </div>
-      </section>
-
-      <section class="content">
-        <div class="item">
-          <div class="item-title">
-            <div class="text">몇분이세요?</div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">맵크뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            크뽕의 장점을 그대로 살리고 화끈한 매운맛을 추가한 맵무심 넘치는
+            메뉴
           </div>
-          <div class="item-content">
-            <div class="reservation-people">
-              <div class="people-button" id="js-people-buttons">
-                <button type="button" class="decrease" data-increase="-">
-                  -
-                </button>
-                <div class="num">1</div>
-                <button type="button" class="increase" data-increase="+">
-                  +
-                </button>
-              </div>
-            </div>
-          </div>
+          <img class="img" src="img/menu/spicyKeuPpong.png" alt="맵크뽕" />
         </div>
-      </section>
-
-      <section class="content">
-        <div class="item">
-          <div class="item-title">
-            <div class="text">전화번호를 입력해주세요</div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">크뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            순백의 크림소스와 홍합의 비주얼 콜라보! 부드럽고 고소한 식감으로
+            누구에게나 추천 가능한 메뉴
           </div>
-          <div class="item-content">
-            <div class="reservation-tel">
-              <div class="tel">
-                <input
-                  type="tel"
-                  pattern="[0-1]{3}[0-9]{4}[0-9]{4}"
-                  maxlength="11"
-                  placeholder="01012345678"
-                  name="reservationTel"
-                  required
-                />
-              </div>
-            </div>
-          </div>
+          <img class="img" src="img/menu/keuPpong.png" alt="크뽕" />
         </div>
-      </section>
-    </div>
-    <div class="reservation-btn">
-      <button type="submit">메뉴 고르러 가기</button>
-    </div>
-  </form>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">로뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            장밋빛 로제 소스에 모차렐라치즈까지! 비주얼 깡패! 부드러운 맛에 다시
+            한번 놀라는 메뉴
+          </div>
+          <img class="img" src="img/menu/roPpong.png" alt="로뽕" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">차뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            매콤한 짬뽕에 강렬한 불 맛을 더한 니뽕내뽕 베스트 메뉴
+          </div>
+          <img class="img" src="img/menu/chaPpong.png" alt="차뽕" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">일뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            해산물이 내는 뽀얀 국물인 짬뽕 깔끔하고 시원한 맛을 찾는 분께 추천!
+          </div>
+          <img class="img" src="img/menu/ilPpong.png" alt="일뽕" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">토뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            열정적인 토마토와 건강한 통마늘이 어우러져 살짝 매콤한 맛에 다시
+            찾게 되는 메뉴
+          </div>
+          <img class="img" src="img/menu/toPpong.png" alt="토뽕" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">태뽕</div></div>
+        <div class="item-content">
+          <div class="text">
+            국물이 없는 짬뽕에 땅콩 토핑을 얹어 달콤, 매콤, 고소한 식감을 주는
+            태국식 볶음면
+          </div>
+          <img class="img" src="img/menu/taeppong.png" alt="태뽕" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">뽕골레</div></div>
+        <div class="item-content">
+          <div class="text">
+            쫄깃한 바지락에 향긋한 마늘과 와인 향이 더해진 봉골레 짬뽕
+          </div>
+          <img class="img" src="img/menu/vongolePpong.png" alt="뽕골레" />
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2>리조또</h2>
+      <div class="item">
+        <div class="item-title"><div class="text">핫시크리조또</div></div>
+        <div class="item-content">
+          <div class="text">
+            지중해풍 해산물 크림 리조또에 차뽕의 강렬하고 매콤한 불 맛을 더해서
+            탄생한 니뽕내뽕버전의 해산물 크림 리조또
+          </div>
+          <img
+            class="img"
+            src="img/menu/hotChicRisotto.png"
+            alt="핫시크리조또"
+          />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">크림불고기리조또</div></div>
+        <div class="item-content">
+          <div class="text">
+            부드럽고 고소한 크림소스에 불고기를 더한 남녀노소 즐길 수 있는
+            크림리조또
+          </div>
+          <img
+            class="img"
+            src="img/menu/creamBulgogiRisotto.png"
+            alt="크림불고기리조또"
+          />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">맵로제리조또</div></div>
+        <div class="item-content">
+          <div class="text">
+            특제 로제 소스와 불고기 그리고 니뽕내뽕 매운맛의 완벽한 조화로
+            만들어진 매운 로제 리조또
+          </div>
+          <img
+            class="img"
+            src="img/menu/spicyRojeRisotto.png"
+            alt="맵로제리조또"
+          />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">로제불고기리조또</div></div>
+        <div class="item-content">
+          <div class="text">
+            특제 토마토소스에 크림을 더해 이국적인 맛을 느낄 수 있는 로제와
+            불고기가 어우러진 리조또
+          </div>
+          <img
+            class="img"
+            src="img/menu/rojeRisotto.png"
+            alt="로제불고기리조또"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2>피자</h2>
+      <div class="item">
+        <div class="item-title"><div class="text">포테이컨피자</div></div>
+        <div class="item-content">
+          <div class="text">
+            베이컨 피자와 포테이토 피자를 동시에 즐길 수 있는 단짠매력의 피자
+          </div>
+          <img class="img" src="img/menu/potaconPizza.png" alt="포테이컨피자" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">콘치즈피자</div></div>
+        <div class="item-content">
+          <div class="text">
+            니뽕내뽕만의 부드러운 갈릭치즈 소스에 고소한 콘과 치즈의 조화!
+            은은하게 퍼지는 트러플 향까지 한 번에 즐길 수 있는 피자
+          </div>
+          <img
+            class="img"
+            src="img/menu/cornCheesePizza.png"
+            alt="콘치즈피자"
+          />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">페피자</div></div>
+        <div class="item-content">
+          <div class="text">
+            누구나 부담 없이 즐길 수 있는 페퍼로니 피자에 트리플 치즈를 넣어
+            치즈의 풍미와 페퍼로니에 매콤함을 동시에 느낄 수 있는 피자
+          </div>
+          <img
+            class="img"
+            src="img/menu/pepperoniTripleCheesePizza.png"
+            alt="페피자"
+          />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">니피자</div></div>
+        <div class="item-content">
+          <div class="text">
+            고구마 토핑 피자를 딥 소스에 찍어 먹는 피자 달콤하고 고소한 식감에
+            남녀노소 모두 선호하는 베스트 메뉴
+          </div>
+          <img class="img" src="img/menu/niPizza.png" alt="니피자" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-title"><div class="text">내피자</div></div>
+        <div class="item-content">
+          <div class="text">
+            갈릭버터 토핑 피자를 딥소스에 찍어 먹는 피자 건강한 마늘향과
+            크림치즈 딥소스의 콜라보!
+          </div>
+          <img class="img" src="img/menu/naePizza.png" alt="내피자" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="reservation-btn">
+    <button data-link="/user_reservation">예약하기</button>
+  </div>
 </div>

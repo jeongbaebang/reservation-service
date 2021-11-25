@@ -36,9 +36,9 @@ export default class extends tools {
 
         storage.set(
           stringify({
-            인원수: countValue.get(),
-            방문예정시간: $reservationForm.reservationTime.value,
-            전화번호: $reservationForm.reservationTel.value
+            headCount: countValue.get(),
+            time: $reservationForm.reservationTime.value,
+            phoneNum: $reservationForm.reservationTel.value
           })
         );
 

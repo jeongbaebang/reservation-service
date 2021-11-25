@@ -226,7 +226,7 @@ main #app {
 
   margin-top: 5px;
 
-  background-image: url('../img/logo/main_brand_logo.png');
+  background-image: url('/img/logo/main_brand_logo.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -239,7 +239,8 @@ main #app {
 .menu-card,
 .user-reservation,
 .menu-reservation,
-.confirm {
+.confirm,
+.admin {
   height: 53vh;
   max-height: 53vh;
 
@@ -408,7 +409,8 @@ footer p {
 /* test */
 
 .menu-card .item .item-content,
-.menu-reservation .item .item-content {
+.menu-reservation .item .item-content,
+.admin .item .item-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -423,6 +425,11 @@ footer p {
   width: 100px;
   height: auto;
   object-fit: cover;
+}
+
+.admin .item .item-content {
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 /* larget tablets & laptop styles */

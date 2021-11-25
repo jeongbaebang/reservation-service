@@ -1,26 +1,5 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs
-} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
-
 import tools from '../tools/index.js';
 import router from '../router/index.js';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyCukhak2OPlsDxZovcxsa3cj7ifBQCrsyY',
-  authDomain: 'reservationservice-38e70.firebaseapp.com',
-  projectId: 'reservationservice-38e70',
-  storageBucket: 'reservationservice-38e70.appspot.com',
-  messagingSenderId: '601475106569',
-  appId: '1:601475106569:web:884ae015bbb783806235d8',
-  measurementId: 'G-H7LXSBG76F'
-};
-
-// Initialize Firebase
-initializeApp(firebaseConfig);
 
 export default class extends tools {
   controller() {
@@ -34,6 +13,10 @@ export default class extends tools {
     const storage = super.localStorage;
     const { parse } = super.JSON();
     const { navigate } = router;
+
+    const { getFirestore, addDoc, collection } = super.fireStore();
+
+    let isOnline = true;
 
     const STORAGE_MENU_KEY = 'menuReservationInfo';
     const STORAGE_USER_KEY = 'userReservationInfo';
@@ -51,7 +34,7 @@ export default class extends tools {
       return;
     }
 
-    function createItemList(itemName, itemText) {
+    function createItemList(itemName = '', itemText) {
       const $itemContent = cE('div', 'item-content');
       const $itemContentText = cE('div', 'text', `${itemName} : ${itemText}`);
 
@@ -84,9 +67,17 @@ export default class extends tools {
       aC($target, $fragment);
     }
 
-    createItem('confirm-personal', user);
+    createItem(
+      'confirm-personal',
+      super.changelanguage(
+        user,
+        ['headCount', 'time', 'phoneNum'],
+        ['인원수', '방문예정시간', '전화번호']
+      )
+    );
     createItem('confirm-menu', menu);
     createTextArea('confirm-request');
+
     const handlers = {
       async submit(event) {
         event.preventDefault();
@@ -95,7 +86,11 @@ export default class extends tools {
           '.item-content textarea'
         ).value;
 
-        if (window.confirm('go?')) {
+        if (window.confirm('예약을 진행할까요?')) {
+          if (!isOnline) {
+            alert('현재 네트워크 상태가 좋지 않습니다');
+            return;
+          }
           const db = getFirestore();
 
           try {
@@ -103,16 +98,21 @@ export default class extends tools {
               time: new Date(),
               menu,
               user,
-              request
+              request,
+              number: 0
             });
             console.log('Document written with ID: ', docRef.id);
-            storage().clear();
           } catch (e) {
             console.error('Error adding document: ', e);
           }
         }
       }
     };
+
+    window.addEventListener('offline', () => {
+      isOnline = false;
+    });
+
     super.addEventListener($form, 'submit', handlers.submit);
   }
 }

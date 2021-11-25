@@ -1,0 +1,8 @@
+{
+  "name": "니뽕내뽕_영종도점",
+  "short_name": "니뽕내뽕",
+  "start_url": ".",
+  "background_color": "#ffffff",
+  "theme_color": "#7bcccd",
+  "display": "standalone"
+}

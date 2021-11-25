@@ -13,7 +13,7 @@ export default function router(routeInfo = []) {
 
     if (!match) {
       match = {
-        route: ROUTE_INFO[0],
+        ROUTE: ROUTE_INFO[0],
         isMatch: true
       };
     }
