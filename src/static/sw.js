@@ -44,21 +44,21 @@ globalThis.addEventListener('install', event => {
 });
 
 // 데이터 캐싱 & 오프라인 지원
-// globalThis.addEventListener('fetch', e => {
-//   e.respondWith(
-//     caches.match(e.request).then(response => response || fetch(e.request))
-//   );
-// });
-
-// 오프라인 지원
-globalThis.addEventListener('fetch', event => {
-  event.respondWith(
-    (async function () {
-      try {
-        return await fetch(event.request);
-      } catch (err) {
-        return caches.match(event.request);
-      }
-    })()
+globalThis.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => response || fetch(e.request))
   );
 });
+
+// 오프라인 지원
+// globalThis.addEventListener('fetch', event => {
+//   event.respondWith(
+//     (async function () {
+//       try {
+//         return await fetch(event.request);
+//       } catch (err) {
+//         return caches.match(event.request);
+//       }
+//     })()
+//   );
+// });
