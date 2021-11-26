@@ -1,70 +1,85 @@
-globalThis.addEventListener('install', e =>
-  e.waitUntil(
-    caches
-      .open('static')
-      .then(cache =>
-        cache.addAll([
-          './',
+globalThis.addEventListener('install', event => {
+  event.waitUntil(
+    (async function () {
+      const cache = await caches.open('static');
+      await cache.addAll([
+        './',
 
-          'manifest.json',
+        'manifest.json',
 
-          'css/index.css',
-          'css/reset.css',
+        'css/index.css',
+        'css/reset.css',
 
-          'font/Jua-Regular.ttf',
+        'font/Jua-Regular.ttf',
 
-          'img/menu/appleMangoAde.png',
-          'img/menu/chaPpong.png',
-          'img/menu/cornCheesePizza.png',
-          'img/menu/creamBulgogiRisotto.png',
-          'img/menu/grapefruitAde.png',
-          'img/menu/greengrapeAde.png',
-          'img/menu/hotChicRisotto.png',
-          'img/menu/ilPpong.png',
-          'img/menu/keuPpong.png',
-          'img/menu/naePizza.png',
-          'img/menu/niPizza.png',
-          'img/menu/orangeAde.png',
-          'img/menu/pepperoniTripleCheesePizza.png',
-          'img/menu/potaconPizza.png',
-          'img/menu/rojeRisotto.png',
-          'img/menu/roPpong.png',
-          'img/menu/spicyKeuPpong.png',
-          'img/menu/spicyRojeRisotto.png',
-          'img/menu/taeppong.png',
-          'img/menu/toPpong.png',
-          'img/menu/truffleMeatJjajang.png',
-          'img/menu/vongolePpong.png',
+        'img/menu/appleMangoAde.png',
+        'img/menu/chaPpong.png',
+        'img/menu/cornCheesePizza.png',
+        'img/menu/creamBulgogiRisotto.png',
+        'img/menu/grapefruitAde.png',
+        'img/menu/greengrapeAde.png',
+        'img/menu/hotChicRisotto.png',
+        'img/menu/ilPpong.png',
+        'img/menu/keuPpong.png',
+        'img/menu/naePizza.png',
+        'img/menu/niPizza.png',
+        'img/menu/orangeAde.png',
+        'img/menu/pepperoniTripleCheesePizza.png',
+        'img/menu/potaconPizza.png',
+        'img/menu/rojeRisotto.png',
+        'img/menu/roPpong.png',
+        'img/menu/spicyKeuPpong.png',
+        'img/menu/spicyRojeRisotto.png',
+        'img/menu/taeppong.png',
+        'img/menu/toPpong.png',
+        'img/menu/truffleMeatJjajang.png',
+        'img/menu/vongolePpong.png',
 
-          'img/logo/favicon.ico',
-          '/img/logo/main_brand_logo.png',
-          'img/logo/logo.png',
+        'img/logo/favicon.ico',
+        '/img/logo/main_brand_logo.png',
+        'img/logo/logo.png',
 
-          'js/controller/confirm.js',
-          'js/controller/menu.js',
-          'js/controller/user.js',
-          'js/controller/admin.js',
+        'js/controller/confirm.js',
+        'js/controller/menu.js',
+        'js/controller/user.js',
+        'js/controller/admin.js',
 
-          'js/router/index.js',
-          'js/router/router.js',
+        'js/router/index.js',
+        'js/router/router.js',
 
-          'js/tools/firebase.js',
-          'js/tools/index.js',
+        'js/tools/firebase.js',
+        'js/tools/index.js',
 
-          'js/views/AbstractView.js',
-          'js/views/Admin.js',
-          'js/views/Confirm.js',
-          'js/views/Home.js',
-          'js/views/Menu.js',
-          'js/views/MenuReservation.js',
-          'js/views/UserReservation.js'
-        ])
-      )
-  )
-);
+        'js/views/AbstractView.js',
+        'js/views/Admin.js',
+        'js/views/Confirm.js',
+        'js/views/Home.js',
+        'js/views/Menu.js',
+        'js/views/MenuReservation.js',
+        'js/views/UserReservation.js',
 
-globalThis.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(response => response || fetch(e.request))
+        'js/index.js'
+      ]);
+    })()
+  );
+});
+
+// 데이터 캐싱 & 오프라인 지원
+// globalThis.addEventListener('fetch', e => {
+//   e.respondWith(
+//     caches.match(e.request).then(response => response || fetch(e.request))
+//   );
+// });
+
+// 오프라인 지원
+globalThis.addEventListener('fetch', event => {
+  event.respondWith(
+    (async function () {
+      try {
+        return await fetch(event.request);
+      } catch (err) {
+        return caches.match(event.request);
+      }
+    })()
   );
 });
