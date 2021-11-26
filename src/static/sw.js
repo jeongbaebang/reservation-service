@@ -37,28 +37,7 @@ globalThis.addEventListener('install', event => {
 
         'img/logo/favicon.ico',
         '/img/logo/main_brand_logo.png',
-        'img/logo/logo.png',
-
-        'js/controller/confirm.js',
-        'js/controller/menu.js',
-        'js/controller/user.js',
-        'js/controller/admin.js',
-
-        'js/router/index.js',
-        'js/router/router.js',
-
-        'js/tools/firebase.js',
-        'js/tools/index.js',
-
-        'js/views/AbstractView.js',
-        'js/views/Admin.js',
-        'js/views/Confirm.js',
-        'js/views/Home.js',
-        'js/views/Menu.js',
-        'js/views/MenuReservation.js',
-        'js/views/UserReservation.js',
-
-        'js/index.js'
+        'img/logo/logo.png'
       ]);
     })()
   );
