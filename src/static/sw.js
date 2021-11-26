@@ -57,9 +57,7 @@ globalThis.addEventListener('install', e =>
           'js/views/Home.js',
           'js/views/Menu.js',
           'js/views/MenuReservation.js',
-          'js/views/UserReservation.js',
-
-          'js/index.js'
+          'js/views/UserReservation.js'
         ])
       )
   )
