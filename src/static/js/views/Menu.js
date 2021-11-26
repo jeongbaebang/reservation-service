@@ -15,14 +15,6 @@ export default class extends AbstractView {
       const $itemTitle = cE('div', 'item-title');
       const $itemTitleText = cE('div', 'text', name);
 
-      // test
-
-      const $testText = cE('img', 'img');
-      $testText.src = img;
-      $testText.alt = name;
-
-      // testEnd
-
       aC($itemTitle, $itemTitleText);
 
       const $itemContent = cE('div', 'item-content');
@@ -30,9 +22,13 @@ export default class extends AbstractView {
 
       aC($itemContent, $itemContentText);
 
-      // test
-      aC($itemContent, $testText);
-      // testEnd
+      if (img) {
+        const $img = cE('img', 'img');
+        $img.src = img;
+        $img.alt = name;
+
+        aC($itemContent, $img);
+      }
 
       aC($item, [$itemTitle, $itemContent]);
 
@@ -43,9 +39,13 @@ export default class extends AbstractView {
       const $scrren = cE('div', 'scrren');
       const $menuCard = cE('div', 'menu-card');
 
-      const $title = ['면종류', '리조또', '피자', '에이드'].map(title =>
-        cE('h2', null, title)
-      );
+      const $title = [
+        '면종류',
+        '리조또',
+        '피자',
+        '에이드 1L/500ML',
+        '사이드'
+      ].map(title => cE('h2', null, title));
 
       Object.values(info).forEach((infoArr = [], i) => {
         const $content = cE('section', 'content');

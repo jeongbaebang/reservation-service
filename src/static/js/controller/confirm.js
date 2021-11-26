@@ -87,6 +87,7 @@ export default class extends tools {
         ).value;
 
         if (window.confirm('예약을 진행할까요?')) {
+          window.alert('예약이 접수되었습니다.');
           if (!isOnline) {
             alert('현재 네트워크 상태가 좋지 않습니다');
             return;
@@ -102,6 +103,8 @@ export default class extends tools {
               number: 0
             });
             console.log('Document written with ID: ', docRef.id);
+            navigate('/');
+            return;
           } catch (e) {
             console.error('Error adding document: ', e);
           }

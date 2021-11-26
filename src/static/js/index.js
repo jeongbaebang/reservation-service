@@ -22,3 +22,8 @@ if ('serviceWorker' in navigator) {
     console.error(err);
   });
 }
+
+// 임시
+document.querySelector('.logo').addEventListener('dblclick', () => {
+  navigate('/admin');
+});

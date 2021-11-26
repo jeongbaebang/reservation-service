@@ -17,18 +17,10 @@ export default class extends AbstractView {
     const cE = super.createElement;
     const aC = super.appendChild;
 
-    function createItem({ name, text, img }) {
+    function createItem({ name, text, img, price }) {
       const $item = cE('div', 'item');
       const $itemTitle = cE('div', 'item-title');
       const $itemTitleText = cE('div', 'text', name);
-
-      // test
-
-      const $testText = cE('img', 'img');
-      $testText.src = img;
-      $testText.alt = name;
-
-      // testEnd
 
       aC($itemTitle, $itemTitleText);
 
@@ -37,15 +29,17 @@ export default class extends AbstractView {
 
       aC($itemContent, $itemContentText);
 
-      // test
+      if (img) {
+        const $img = cE('img', 'img');
+        $img.src = img;
+        $img.alt = name;
 
-      aC($itemContent, $testText);
-
-      // testEnd
+        aC($itemContent, $img);
+      }
 
       const $itemUserSelection = cE('div', 'item-userSelection');
 
-      const $price = cE('div', 'price', '9.0');
+      const $price = cE('div', 'price', price);
 
       const $quantity = cE('div', 'quantity');
 
@@ -85,9 +79,13 @@ export default class extends AbstractView {
 
       aC($menuReservation, [cE('h1', null, '메뉴선택'), $progress]);
 
-      const $title = ['면종류', '리조또', '피자', '에이드'].map(title =>
-        cE('h2', null, title)
-      );
+      const $title = [
+        '면종류',
+        '리조또',
+        '피자',
+        '에이드 1L/500ML',
+        '사이드'
+      ].map(title => cE('h2', null, title));
 
       Object.values(info).forEach((infoArr = [], i) => {
         const $content = cE('section', 'content');

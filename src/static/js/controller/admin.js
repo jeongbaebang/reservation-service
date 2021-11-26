@@ -13,14 +13,20 @@ export default class extends tools {
 
     const $content = qS(document, '.content');
 
-    function createItem({ user, menu, request }) {
+    function createItem({ user, menu, request, time: generationTime }) {
+      const gT = generationTime.toDate();
       const { headCount, time, phoneNum } = JSON.parse(user);
       const menus = Object.entries(JSON.parse(menu)).flat().join(' ');
 
       const $item = cE('div', 'item');
 
       const $itemTitle = cE('div', 'item-title');
-      const $itemTitleText = cE('div', 'text', '00번째 예약손님');
+      new Date().getHours();
+      const $itemTitleText = cE(
+        'div',
+        'text',
+        `${gT.getDate()}일 - ${gT.getHours()}:${gT.getMinutes()}분 예약손님`
+      );
 
       aC($itemTitle, $itemTitleText);
 
@@ -60,7 +66,11 @@ export default class extends tools {
           );
         });
       });
+
       addEventListener(globalThis, 'offline', () => {
+        unsub();
+      });
+      addEventListener(globalThis, 'beforeunload', () => {
         unsub();
       });
     }

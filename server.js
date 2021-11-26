@@ -3,7 +3,6 @@ const path = require('path');
 
 const app = express();
 
-console.log(__dirname);
 app.use('/', express.static(path.resolve(__dirname, './src/', 'static')));
 
 app.get('/*', (req, res) => {
@@ -11,5 +10,5 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('서버로딩');
+  console.log(__dirname);
 });
