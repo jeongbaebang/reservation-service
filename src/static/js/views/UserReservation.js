@@ -1,6 +1,6 @@
-import AbstractView from './AbstractView.js';
+import AbstractView from './AbstractView';
 
-import User from '../controller/user.js';
+import User from '../controller/user';
 
 const user = new User();
 

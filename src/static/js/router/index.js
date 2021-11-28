@@ -1,11 +1,11 @@
-import Menu from '../views/Menu.js';
-import Home from '../views/Home.js';
-import UserReservation from '../views/UserReservation.js';
-import MenuReservation from '../views/MenuReservation.js';
-import Confirm from '../views/Confirm.js';
-import Admin from '../views/Admin.js';
+import Menu from '../views/Menu';
+import Home from '../views/Home';
+import UserReservation from '../views/UserReservation';
+import MenuReservation from '../views/MenuReservation';
+import Confirm from '../views/Confirm';
+import Admin from '../views/Admin';
 
-import router from './router.js';
+import router from './router';
 
 const routeInfo = [
   { path: '/', View: Home },

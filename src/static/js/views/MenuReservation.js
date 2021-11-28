@@ -1,5 +1,5 @@
-import AbstractView from './AbstractView.js';
-import Menu from '../controller/menu.js';
+import AbstractView from './AbstractView';
+import Menu from '../controller/menu';
 
 const menu = new Menu();
 

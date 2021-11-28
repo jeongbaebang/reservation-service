@@ -1,4 +1,6 @@
-import router from './router/index.js';
+import '../css/index.css';
+
+import router from './router/index';
 
 const { route, navigate } = router;
 

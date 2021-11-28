@@ -230,7 +230,7 @@ main #app {
 
   margin-top: 5px;
 
-  background-image: url('/img/logo/main_brand_logo.png');
+  background-image: url('../img/logo/main_brand_logo.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;

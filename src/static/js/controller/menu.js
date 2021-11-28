@@ -1,5 +1,5 @@
-import tools from '../tools/index.js';
-import router from '../router/index.js';
+import tools from '../tools/index';
+import router from '../router/index';
 
 export default class extends tools {
   controller() {

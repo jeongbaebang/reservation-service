@@ -1,5 +1,5 @@
-import AbstractView from './AbstractView.js';
-import Confirm from '../controller/confirm.js';
+import AbstractView from './AbstractView';
+import Confirm from '../controller/confirm';
 
 const confirm = new Confirm();
 

@@ -17,7 +17,6 @@
   "parser": "babel-eslint",
   "rules": {
     "class-methods-use-this": ["off"],
-    "import/extensions": ["off"],
     "import/no-cycle": ["off"],
     "max-len": [
       "error",

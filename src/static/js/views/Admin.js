@@ -1,5 +1,5 @@
-import AbstractView from './AbstractView.js';
-import Admin from '../controller/admin.js';
+import AbstractView from './AbstractView';
+import Admin from '../controller/admin';
 
 const admin = new Admin();
 

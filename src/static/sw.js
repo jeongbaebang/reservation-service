@@ -3,14 +3,7 @@ globalThis.addEventListener('install', event => {
     (async function () {
       const cache = await caches.open('static');
       await cache.addAll([
-        './',
-
-        'manifest.json',
-
-        'css/index.css',
-        'css/reset.css',
-
-        'font/Jua-Regular.ttf',
+        'dist/app.bundle.js',
 
         'img/menu/appleMangoAde.png',
         'img/menu/chaPpong.png',
@@ -36,7 +29,6 @@ globalThis.addEventListener('install', event => {
         'img/menu/vongolePpong.png',
 
         'img/logo/favicon.ico',
-        '/img/logo/main_brand_logo.png',
         'img/logo/logo.png'
       ]);
     })()
@@ -49,16 +41,3 @@ globalThis.addEventListener('fetch', e => {
     caches.match(e.request).then(response => response || fetch(e.request))
   );
 });
-
-// 오프라인 지원
-// globalThis.addEventListener('fetch', event => {
-//   event.respondWith(
-//     (async function () {
-//       try {
-//         return await fetch(event.request);
-//       } catch (err) {
-//         return caches.match(event.request);
-//       }
-//     })()
-//   );
-// });

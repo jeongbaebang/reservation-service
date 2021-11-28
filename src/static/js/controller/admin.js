@@ -1,4 +1,4 @@
-import tools from '../tools/index.js';
+import tools from '../tools/index';
 
 export default class extends tools {
   controller() {

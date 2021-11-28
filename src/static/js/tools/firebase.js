@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
+import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   collection,
@@ -10,7 +10,7 @@ import {
   query,
   orderBy,
   onSnapshot
-} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
+} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCukhak2OPlsDxZovcxsa3cj7ifBQCrsyY',

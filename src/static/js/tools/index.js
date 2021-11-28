@@ -1,4 +1,4 @@
-import firebase from './firebase.js';
+import firebase from './firebase';
 
 export default class extends firebase {
   createElement(tagName = 'div', className, textContent) {
