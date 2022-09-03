@@ -42,6 +42,6 @@
   "homepage": "https://github.com/jeongbaebang/ReservationService#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "firebase": "^9.5.0"
+    "firebase": "^9.9.4"
   }
 }
